@@ -1,21 +1,31 @@
-
 body{
 font-family:Arial;
-max-width:900px;
+background:#f4f6f8;
+max-width:1100px;
 margin:auto;
 padding:40px;
-background:#f8f9fa;
+}
+
+.blog-container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:20px;
 }
 
 .blog-card{
 background:white;
 padding:20px;
-margin-bottom:20px;
 border-radius:10px;
-box-shadow:0 2px 8px rgba(0,0,0,0.1);
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+.blog-img{
+width:100%;
+border-radius:10px;
+margin-bottom:15px;
 }
 
 .blog-card a{
 text-decoration:none;
-color:#333;
+color:#007bff;
 }
