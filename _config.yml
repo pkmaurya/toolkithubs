@@ -1,3 +1,4 @@
 title: ToolKitHubs Blog
 description: Developer tutorials and tools
 theme: minima
+permalink: /:title/
