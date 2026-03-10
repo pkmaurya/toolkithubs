@@ -20,7 +20,7 @@ title: Blog
 <div class="content">
 
 <h2>
-<a href="{{ post.url }}">{{ post.title }}</a>
+<a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
 </h2>
 
 <p class="meta">
@@ -29,7 +29,7 @@ title: Blog
 
 <p>{{ post.excerpt }}</p>
 
-<a href="{{ post.url }}" class="read-btn">
+<a href="{{ site.baseurl }}{{ post.url }}" class="read-btn">
 Read More →
 </a>
 
