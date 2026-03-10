@@ -1,7 +1,14 @@
 title: ToolKitHubs Blog
-description: Developer tutorials, tools, and insights for modern developers
+description: Modern developer tutorials, tools, and insights
 baseurl: "/toolkithubs"
 permalink: /:title/
+
+# Author settings
+author: ToolKitHubs Team
+
+# Social links
+github_username: toolkithubs
+twitter_username: toolkithubs
 
 # Build settings
 markdown: kramdown
@@ -9,9 +16,10 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
 
-# Defaults
+# Default front matter
 defaults:
   - scope:
       path: ""
       values:
-        image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&auto=format&fit=crop"
+        author: "ToolKitHubs Team"
+        image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&auto=format&fit=crop"
