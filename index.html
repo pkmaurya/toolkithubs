@@ -1,15 +1,20 @@
 ---
 layout: default
-title: Home
+title: Blog
 ---
 
-<h1>Latest Blog Posts</h1>
+<h1>ToolKitHubs Blog</h1>
 
-<ul>
+<div class="blog-list">
+
 {% for post in site.posts %}
-<li>
-<a href="{{ post.url }}">{{ post.title }}</a>
+
+<div class="blog-card">
+<h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
 <p>{{ post.date | date: "%B %d, %Y" }}</p>
-</li>
+<p>{{ post.excerpt }}</p>
+</div>
+
 {% endfor %}
-</ul>
+
+</div>
