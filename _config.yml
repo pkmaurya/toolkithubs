@@ -1,4 +1,5 @@
 title: ToolKitHubs Blog
-description: Developer tutorials and tools
+description: Developer tutorials
 theme: minima
+baseurl: "/toolkithubs"
 permalink: /:title/
