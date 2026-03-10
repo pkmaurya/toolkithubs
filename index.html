@@ -4,87 +4,145 @@ title: Blog
 ---
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-
-<meta charset="UTF-8">
-<title>{{ site.title }}</title>
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
-
-<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ site.title }} - Modern Dev Blog</title>
+    
+    <!-- Bootstrap & Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
 </head>
 
 <body>
+    <!-- Modern Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="{{ site.baseurl }}/">
+                <i class="bi bi-code-square"></i>
+                ToolKitHubs
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="bi bi-grid"></i> All Posts
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="bi bi-tags"></i> Categories
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="bi bi-search"></i> Search
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
-<div class="container">
+    <!-- Main Content -->
+    <div class="main-container">
+        <!-- Hero Section -->
+        <div class="hero-section">
+            <h1 class="hero-title">
+                <i class="bi bi-code-slash"></i>
+                Developer's Toolkit
+            </h1>
+            <p class="hero-subtitle">
+                Discover the latest tools, tutorials, and insights for modern web development
+            </p>
+        </div>
 
-<a class="navbar-brand fw-bold" href="{{ site.baseurl }}/">
-<i class="bi bi-code-slash"></i>
-ToolKitHubs
-</a>
+        <!-- Blog Grid -->
+        <h2 class="section-title">
+            <i class="bi bi-lightning-charge-fill"></i>
+            Latest Articles
+        </h2>
 
-</div>
-</nav>
+        <div class="blog-grid">
+            {% for post in site.posts %}
+            <article class="blog-card-modern">
+                <div class="card-image-wrapper">
+                    <!-- Unsplash Images based on post category -->
+                    {% if post.image contains 'sql' %}
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&auto=format&fit=crop" 
+                             alt="{{ post.title }}" 
+                             class="card-image">
+                    {% elsif post.image contains 'javascript' %}
+                        <img src="https://images.unsplash.com/photo-1579468118864-1b9ea3c0db4a?w=800&auto=format&fit=crop" 
+                             alt="{{ post.title }}" 
+                             class="card-image">
+                    {% elsif post.image contains 'python' %}
+                        <img src="https://images.unsplash.com/photo-1526379095098-4000731976d8?w=800&auto=format&fit=crop" 
+                             alt="{{ post.title }}" 
+                             class="card-image">
+                    {% else %}
+                        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&auto=format&fit=crop" 
+                             alt="{{ post.title }}" 
+                             class="card-image">
+                    {% endif %}
+                    <div class="image-overlay"></div>
+                    <span class="card-category">
+                        <i class="bi bi-code-slash"></i> Tutorial
+                    </span>
+                </div>
 
-<div class="container py-5">
+                <div class="card-content">
+                    <h3 class="card-title">
+                        <a href="{{ site.baseurl }}{{ post.url }}">
+                            {{ post.title }}
+                        </a>
+                    </h3>
 
-<h3 class="mb-4">
-<i class="bi bi-fire"></i>
-Latest Articles
-</h3>
+                    <div class="card-meta">
+                        <span class="meta-item">
+                            <i class="bi bi-calendar3"></i>
+                            {{ post.date | date: "%B %d, %Y" }}
+                        </span>
+                        <span class="meta-item">
+                            <i class="bi bi-clock"></i>
+                            5 min read
+                        </span>
+                    </div>
 
-<div class="row">
+                    <p class="card-excerpt">
+                        {{ post.excerpt | strip_html | truncatewords: 20 }}
+                    </p>
 
-{% for post in site.posts %}
+                    <div class="card-footer">
+                        <div class="author-info">
+                            <div class="author-avatar">
+                                <i class="bi bi-person"></i>
+                            </div>
+                            <span class="author-name">Admin</span>
+                        </div>
+                        
+                        <a href="{{ site.baseurl }}{{ post.url }}" class="read-more-btn">
+                            Read More
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
 
-<div class="col-md-6 mb-4">
-
-<div class="card blog-card h-100">
-
-<img src="{{ site.baseurl }}{{ post.image }}" class="card-img-top">
-
-<div class="card-body">
-
-<h5 class="card-title">
-
-<a href="{{ site.baseurl }}{{ post.url }}">
-{{ post.title }}
-</a>
-
-</h5>
-
-<p class="text-muted small">
-
-<i class="bi bi-calendar"></i>
-{{ post.date | date: "%B %d, %Y" }}
-
-</p>
-
-<p>{{ post.excerpt }}</p>
-
-<a href="{{ site.baseurl }}{{ post.url }}" class="btn btn-primary btn-sm">
-
-Read Article
-<i class="bi bi-arrow-right"></i>
-
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-{% endfor %}
-
-</div>
-
-</div>
-
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
