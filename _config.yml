@@ -1,5 +1,17 @@
 title: ToolKitHubs Blog
-description: Developer tutorials
-theme: minima
+description: Developer tutorials, tools, and insights for modern developers
 baseurl: "/toolkithubs"
 permalink: /:title/
+
+# Build settings
+markdown: kramdown
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      values:
+        image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&auto=format&fit=crop"
